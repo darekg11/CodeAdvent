@@ -1,0 +1,36 @@
+{
+  "name": "code-advent-day-18",
+  "version": "1.0.0",
+  "description": "Code advent 2017 Day 18 Challenge",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha src/tests/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darekg11/CodeAdvent.git"
+  },
+  "keywords": [
+    "Code",
+    "Advent",
+    "Day",
+    "18",
+    "Challenge",
+    "2017"
+  ],
+  "author": "Dariusz Gorak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darekg11/CodeAdvent/issues"
+  },
+  "homepage": "https://github.com/darekg11/CodeAdvent#readme",
+  "devDependencies": {
+    "eslint": "^4.12.1",
+    "mocha": "^4.0.1",
+    "prettier-eslint": "^8.2.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "performance-now": "^2.1.0"
+  }
+}

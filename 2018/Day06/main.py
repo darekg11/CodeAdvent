@@ -62,5 +62,17 @@ def main():
     # part - 1
     print(only_the_same_in_small_and_larger_area[0])
 
+    # part - 2
+    # Much simpler
+    # We just need to go throught every point in X,Y of grid and check if sum of distances to every defined POINT is below threshold
+    DISTANCE_THRESHOLD = 10000
+    area = 0
+    for current_x in range(min_x - BIGGER_MARGIN, max_x + BIGGER_MARGIN):
+        for current_y in range(min_y - BIGGER_MARGIN, min_y + BIGGER_MARGIN):
+            distances_of_given_coordinate_to_every_other_known = [distance(current_x, current_y, p_x, p_y) for (p_x, p_y) in points]
+            sum_of_distances = sum(distances_of_given_coordinate_to_every_other_known)
+            if sum_of_distances < DISTANCE_THRESHOLD:
+                area += 1
+    print(area)
 
 main()

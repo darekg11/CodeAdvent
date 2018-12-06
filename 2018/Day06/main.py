@@ -27,9 +27,6 @@ def calculateAreas(min_x, min_y, max_x, max_y, margin, all_points):
                 closest_point = distances_of_given_coordinate_to_every_other_known[0][1]
                 # Add +1 to a area marked by closest_point
                 areas[closest_point] += 1
-            else:
-                # In this scenario there were a mulitple equal distances, put it to some magic -999, -999 point
-                areas[(-999, -999)] += 1
     return areas
 
 

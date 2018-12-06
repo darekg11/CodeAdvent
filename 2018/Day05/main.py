@@ -9,7 +9,6 @@ def readLinesFromFile(filename):
 def reactPolimer(polimer):
     # This is a queue from input string 
     # We will iterate throught it and place input correctly on output queue
-    # This will start from second element of input string, as first element is always pushed to output queue
     inputPolimerQueue = deque(polimer)
     # This is our output queue containing final polimer
     outputPolimerQueue = deque()

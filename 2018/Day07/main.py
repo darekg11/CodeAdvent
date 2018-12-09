@@ -9,16 +9,12 @@ def readLinesFromFile(filename):
     return lines
 
 def getNextSteps(stepsRequirementsGraph, leftToDoSteps, stepsAlreadyDone):
-    # print(stepsRequirementsGraph)
-    # print(leftToDoSteps)
-    # print(stepsAlreadyDone)
     currentlyAvailableSteps = []
     for singleStepLeftToResolve in leftToDoSteps:
         requiredSteps = stepsRequirementsGraph[singleStepLeftToResolve]
         if len(requiredSteps) == 0 or  stepsAlreadyDone >= set(requiredSteps):
             currentlyAvailableSteps.append(singleStepLeftToResolve)
     # sort
-    # print(currentlyAvailableSteps)
     currentlyAvailableSteps.sort()
     # return first element
     return currentlyAvailableSteps

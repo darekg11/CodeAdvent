@@ -27,12 +27,38 @@ def findLargest3x3Square(grid):
 
     for x in range(1, len(grid) - 3):
         for y in range(1, len(grid) - 3):
+            # D - B - C + A for 3x3 square
+            # D is always [x + 2] and [y - 2]
+            # B is always [x - 2] and [y - 1]
+            # C is always [x - 1] and [y + 2]
+            # A is always [x - 1] and [y - 1]
             powerOfSquare = grid[x + 2][y + 2] - grid[x + 2][y - 1] - grid[x - 1][y + 2] + grid[x - 1][y - 1]
             if largest_power is None or powerOfSquare > largest_power:
                 largest_power = powerOfSquare
                 largest_x = x
                 largest_y = y
     return largest_x, largest_y, largest_power
+
+def findLargestSquareInAllPossibilities(grid):
+    largest_x = 0
+    largest_y = 0
+    largest_size = 0
+    largest_power = None
+    for gridSizes in range(1, 301):
+        for x in range(1, len(grid) - gridSizes):
+            for y in range(1, len(grid) - gridSizes):
+                # D - B - C + A for ZxZ square
+                # D is always [x + Z - 1] and [y - Z - 1]
+                # B is always [x - Z - 1] and [y - 1]
+                # C is always [x - 1] and [y + Z - 1]
+                # A is always [x - 1] and [y - 1]
+                powerOfSquare = grid[x + gridSizes - 1][y + gridSizes - 1] - grid[x + gridSizes - 1][y - 1] - grid[x - 1][y + gridSizes - 1] + grid[x - 1][y - 1]
+                if largest_power is None or powerOfSquare > largest_power:
+                    largest_power = powerOfSquare
+                    largest_x = x
+                    largest_y = y
+                    largest_size = gridSizes
+    return largest_x, largest_y, largest_power, largest_size
 
 def main():
     # Input:
@@ -45,5 +71,12 @@ def main():
     largest_x, largest_y, largest_power = findLargest3x3Square(grid)
     print(largest_x)
     print(largest_y)
+
+    # Part 2
+    largest_x, largest_y, largest_power, largest_size = findLargestSquareInAllPossibilities(grid)
+    print(largest_x)
+    print(largest_y)
+    print(largest_size)
+    print(largest_power)
 
 main()

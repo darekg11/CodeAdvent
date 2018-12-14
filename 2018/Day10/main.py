@@ -16,21 +16,10 @@ def findSecondWhenTheBoundBoxOfStartsIsTheSmallest(data, max_seconds):
     min_y_best = None
     max_y_best = None
     for second in range(max_seconds):
-        min_x = None
-        max_x = None
-        min_y = None
-        max_y = None
-        for (pos_x, pos_y, vel_x, vel_y) in data:
-            new_x = pos_x + second * vel_x
-            new_y = pos_y + second * vel_y
-            if min_x is None or new_x < min_x:
-                min_x = new_x
-            if max_x is None or new_x > max_x:
-                max_x = new_x
-            if min_y is None or new_y < min_y:
-                min_y = new_y
-            if max_y is None or new_y > max_y:
-                max_y = new_y
+        min_x = min([pos_x + second * vel_x for (pos_x, pos_y, vel_x, vel_y) in data])
+        max_x = max([pos_x + second * vel_x for (pos_x, pos_y, vel_x, vel_y) in data])
+        min_y = min([pos_y + second * vel_y for (pos_x, pos_y, vel_x, vel_y) in data])
+        max_y = max([pos_y + second * vel_y for (pos_x, pos_y, vel_x, vel_y) in data])
         bound_box = max_x - min_x + max_y - min_y
         if min_bound_box is None or bound_box < min_bound_box:
             min_bound_box = bound_box

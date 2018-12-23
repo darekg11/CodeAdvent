@@ -230,7 +230,6 @@ def main():
         if single_player[PLAYER_IS_ALIVE] is True:
             sum_of_hp_of_remaining_players += single_player[PLAYER_HP]
     total_score = rounds * sum_of_hp_of_remaining_players
-    print(rounds)
     print(total_score)
 
 main()
